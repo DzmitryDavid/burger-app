@@ -5,7 +5,7 @@ import './BurgerIngredient.scss';
 
 const  BurgerIngredient = (props) => {
   let ingredient = null;
-  
+
     switch(props.type) {
       case('bread-bottom') : 
         ingredient = <div className="BreadBottom"></div>
@@ -34,10 +34,11 @@ const  BurgerIngredient = (props) => {
       default: 
         ingredient = null;
     }
+    return ingredient;
 }
 
 
-BurgerIngredient.PropTypes ={ 
+BurgerIngredient.propTypes ={ 
   type: PropTypes.string.isRequired
 };
 
