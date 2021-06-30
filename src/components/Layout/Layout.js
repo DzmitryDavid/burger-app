@@ -1,11 +1,12 @@
 import React from 'react';
+import './Layout.scss';
 
 const Layout =  (props) => {
   return (
-    <div>
-      <div>Toolbar, Backdrop, sideDrawer</div> 
+    <>
+      <div className="content">Toolbar, Backdrop, sideDrawer</div> 
       <main>{props.children}</main>
-    </div>
+    </>
   );
 }
 
