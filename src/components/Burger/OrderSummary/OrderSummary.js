@@ -2,7 +2,7 @@ import React from 'react'
 
 const OrderSummary = (props) => {
   const ingredientSummary = Object.keys(props.ingredients)
-  .map(ingredient => <li><span> {ingredient} : {props.ingredients[ingredient]} </span>  </li>)
+  .map((ingredient, idx) => <li key={ingredient}><span> {ingredient} : {props.ingredients[ingredient]} </span>  </li>)
   
   return (
     <>
