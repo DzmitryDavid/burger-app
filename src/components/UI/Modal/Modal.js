@@ -4,7 +4,6 @@ import './Modal.scss';
 
 
 const Modal = (props) => {
-  console.log(props.show);
   return (
     <>
     <Overlay show={props.show} modalClose={props.modalClose}/>
