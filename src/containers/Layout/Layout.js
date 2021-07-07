@@ -5,7 +5,7 @@ import './Layout.scss';
 
 class Layout extends React.Component {
   state = {
-    showSideDrawer: true,
+    showSideDrawer: false,
   }
   sideDrawerCloseHandler = () => {
     this.setState({showSideDrawer: false})
