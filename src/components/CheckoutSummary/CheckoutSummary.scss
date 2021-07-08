@@ -1,0 +1,19 @@
+.checkoutSummary {
+  text-align: center;
+  width: 80%;
+  margin: auto;
+  h1 {
+    text-align: center;
+  }
+}
+.burgerSummaryWrapper {
+  width: 100%;
+  margin: auto;
+}
+
+
+@media (min-width: 600px) {
+  .CheckoutSummary {
+    width: 500px;
+  }
+}
