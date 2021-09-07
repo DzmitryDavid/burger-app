@@ -5,7 +5,6 @@ import Button from '../../UI/Button/Button';
 import './CheckoutSummary.scss';
 
 const CheckoutSummary = (props) => {
-  console.log(props);
   return (
     <div className="checkoutSummary">
       <h1>Your order !</h1>

@@ -2,7 +2,6 @@ import React from 'react';
 import './Input.scss';
 
 const Input = (props) => {
-  console.log(props);
   let inputElement = null;
   switch (props.elementType) {
     case 'input':

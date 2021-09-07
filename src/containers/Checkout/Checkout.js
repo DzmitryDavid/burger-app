@@ -16,8 +16,7 @@ export class Checkout extends Component {
     this.props.history.replace('/checkout/contact-data');
   };
 
-  componentWillMount() {
-    console.log(this.state)
+  componentDidMount() {
     const query = new URLSearchParams(this.props.location.search);
     const ingredients = {};
     let price = 0;

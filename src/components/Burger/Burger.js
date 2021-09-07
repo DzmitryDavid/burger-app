@@ -3,7 +3,6 @@ import BurgerIngredient from '../Burger/BurgerIngredient/BurgerIngredient';
 import './Burger.scss';
 
 const Burger = (props) => {
-console.log(props)
   const transformedIngredients = Object.keys(props.ingredients).map((igKey) => {
     return [...Array(props.ingredients[igKey])].map((_, ind) => {
       return <BurgerIngredient key={igKey + ind} type={igKey}/>
