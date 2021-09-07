@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '../../UI/Button/Button';
 
 const OrderSummary = (props) => {
+  console.log(props)
   const ingredientSummary = Object.keys(props.ingredients)
   .map((ingredient, idx) => <li key={ingredient}><span> {ingredient} : {props.ingredients[ingredient]} </span>  </li>)
   return (
