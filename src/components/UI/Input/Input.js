@@ -3,12 +3,16 @@ import './Input.scss';
 
 const Input = (props) => {
   let inputElement = null;
+  const stylesArray = ['inputElement']
+  if(props.invalid && props.shouldValidate && props.touched) {
+    stylesArray.push('invalid')
+  }
   switch (props.elementType) {
     case 'input':
       inputElement = (
         <input
           onChange={props.changed}
-          className="inputElement"
+          className={stylesArray.join(' ')}
           {...props.elementConfig}
           value={props.value}
         />
