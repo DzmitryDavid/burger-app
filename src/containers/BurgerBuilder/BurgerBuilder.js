@@ -6,12 +6,10 @@ import Spinner from '../../components/UI/Spinner/Spinner';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 import {connect} from 'react-redux';
 import * as actionType from '../../store/actions'
-import axios from '../../axios-orders';
+// import axios from '../../axios-orders';
 
 class BurgerBuilder extends Component {
   state = {
-    // ingredients: null,
-    purchasable: false,
     purchasing: false,
     isLoading: false,
     isError: false,
@@ -36,7 +34,7 @@ class BurgerBuilder extends Component {
       (acc, el) => (acc += el),
       0
     );
-    this.setState({ purchasable: sum > 0 });
+    return sum > 0
   };
 
   
@@ -45,21 +43,7 @@ class BurgerBuilder extends Component {
   };
 
   purchaseContinueHandler = () => {
-    const queryParams = [];
-    for (let i in this.state.ingredients) {
-      
-      queryParams.push(
-        encodeURIComponent(i) +
-          '=' +
-          encodeURIComponent(this.state.ingredients[i])
-      );
-    }
-    queryParams.push(`price=${this.state.totalPrice}`)
-    const queryString = queryParams.join('&')
-    this.props.history.push({
-      pathname: '/checkout',
-      search: '?'+ queryString,
-    });
+    this.props.history.push('/checkout');
   };
 
   render() {
@@ -82,7 +66,7 @@ class BurgerBuilder extends Component {
         <>
           <Burger ingredients={this.props.ings} />
           <BuildControls
-            purchasable={this.state.purchasable}
+            purchasable={this.updatePurchase(this.props.ings)}
             price={this.props.price}
             disabled={disabledInfo}
             ingredientAdded={this.props.onIngredientAdded}
@@ -122,7 +106,7 @@ class BurgerBuilder extends Component {
 const mapStateToProps = (state) => {
   return {
     ings: state.ingredients,
-    price: state.totalPrice
+    price: state.totalPrice, 
   }
 }
 const mapDispatchToProps = (dispatch) => {

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+
 import Button from '../../../components/UI/Button/Button';
 import axiosInstance from '../../../axios-orders';
 import Spinner from '../../../components/UI/Spinner/Spinner';
@@ -79,7 +81,7 @@ class ContactData extends Component {
     isLoading: false,
     formIsValid: false
   };
-  
+
   checkValidation = (value, rules) => {
     let isValid = true;
     if(!rules) {
@@ -96,14 +98,13 @@ class ContactData extends Component {
 
   orderHandler = (e) => {
     e.preventDefault();
-
     this.setState({ isLoading: true });
     const formData = {};
     for (let formIdentifier in this.state.orderForm) {
       formData[formIdentifier] = this.state.orderForm[formIdentifier].value;
     }
     const order = {
-      ingredients: this.props.ingredients,
+      ingredients: this.props.ings,
       price: this.props.price,
       orderData: formData,
     };
@@ -167,5 +168,10 @@ class ContactData extends Component {
     );
   }
 }
-
-export default ContactData;
+const mapStateToProps = state => {
+  return {
+    ings: state.ingredients,
+    price: state.totalPrice
+  }
+}
+export default connect(mapStateToProps)(ContactData);
